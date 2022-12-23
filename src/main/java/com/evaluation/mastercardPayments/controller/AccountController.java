@@ -33,7 +33,6 @@ import javax.validation.Valid;
 @RestController
 @Validated
 @RequestMapping("accounts")
-@Api(tags = "Account Services", description = "APIs to handle Account information and Balance related operations.")
 public class AccountController {
 
     private static final Logger LOG = LogManager.getLogger(AccountController.class);
