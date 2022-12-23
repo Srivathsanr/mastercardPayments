@@ -8,6 +8,7 @@ This is a simple spring-boot application with basic auth spring security.
 
 We have various endpoints for different services. See the Postman collection attached in the root of the Project.
 We are using H2 database hence no need to install any database
+We are using Log4j for logging.
 We are using Jacoco for code coverage
 We are using open api 3.0  for documentation once the application is started it is available under the path below
 Open API path : http://localhost:8080/api-docs/
