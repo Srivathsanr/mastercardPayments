@@ -27,8 +27,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
-@Primary
 public class AccountServiceImpl implements AccountService {
 
     private static final Logger LOG = LogManager.getLogger(AccountServiceImpl.class);
@@ -38,7 +39,7 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private TransactionRepository transactionRepository;
 
-
+    @Transactional
     public void createAccount(AccountRequestDto accountInfoRequest) throws CustomException {
         AccountEntity account = new AccountEntity().builder()
                 .id(accountInfoRequest.getAccountId())
@@ -104,7 +105,7 @@ public class AccountServiceImpl implements AccountService {
                 accountId,miniStatements.size());
         return miniStatements;
     }
-
+    @Transactional
     @Override
     public AccountEntity deleteAccount(AccountRequestDto account) throws CustomException {
         Optional<AccountEntity> accountEntity = accountRepository.findById(account.getAccountId());
